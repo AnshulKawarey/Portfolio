@@ -26,7 +26,7 @@ const Header = () => {
               Anshul Kawarey
             </h1>
             <p className="text-sm text-gray-600 dark:text-gray-400">
-              Machine Learning Enthusiast | Full Stack Developer | Robotics Engineer
+              Machine Learning Engineer | Full Stack Developer | Robotics Engineer
             </p>
           </div>
 
