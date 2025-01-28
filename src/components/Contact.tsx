@@ -18,7 +18,7 @@ const Contact = () => {
     const templateParams = {
       from_name: formData.name,
       from_email: formData.email,
-      message: formData.message,
+      message: `${formData.message}\n\nEmail: ${formData.email}`,
     };
     emailjs
       .send(
