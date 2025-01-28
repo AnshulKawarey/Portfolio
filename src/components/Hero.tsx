@@ -1,4 +1,4 @@
-import AnshulKawarey from '../assets/AnshulKawarey.jpg';
+import AnshulKawarey from '../assets/Anshul_Kawarey.jpg';
 import React from 'react';
 import { ArrowRight } from 'lucide-react';
 
