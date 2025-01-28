@@ -2,6 +2,7 @@ import HobbyVille from '../assets/HobbyVille.png';
 import EVA from '../assets/EVA.jpg';
 import R2 from '../assets/R2.jpg';
 import sorting from '../assets/sorting.jpg';
+import WolfensteinEngine from '../assets/Wolfenstein.jpg';
 import React from 'react';
 import ProjectCard from './ProjectCard';
 
@@ -13,7 +14,7 @@ const Projects = () => {
         'A humanoid robot designed to assist visitors at SRM KTR campus. Integrated advanced chatbot capabilities with fine-tuned LLM, voice recognition, and autonomous navigation using ROS and LiDAR.',
       image: EVA,
       technologies: ['ROS', 'LiDAR', 'LLM', 'Python', 'Chatbot'],
-      github: 'https://github.com/AnshulKawarey/EVA',
+      github: '#',
       // demo: '#'
     },
     {
@@ -24,6 +25,15 @@ const Projects = () => {
       technologies: ['Flutter', 'Firebase', 'OpenStreetMap'],
       github: 'https://github.com/AnshulKawarey/HobbyVille',
       // demo: 'https://github.com/AnshulKawarey/HobbyVille'
+    },
+    {
+      title: 'Wolfenstein-Style Engine',
+      description:
+        'A text-based renderer inspired by classic game engines like Wolfenstein 3D and DOOM. Built in C++ to emulate retro graphics, with customizable console dimensions and font settings for optimal experience.',
+      image: WolfensteinEngine,
+      technologies: ['C++', 'ASCII Rendering', 'Console Graphics'],
+      github: 'https://github.com/AnshulKawarey/DOOM_Style_Engine',
+      // demo: '#'
     },
     {
       title: 'Autonomous 4WD Robot',
@@ -40,8 +50,8 @@ const Projects = () => {
         'A real-time sorting visualizer built with Python, Matplotlib, and NumPy. Enabled users to visually compare sorting algorithms with highly optimized rendering performance.',
       image: sorting,
       technologies: ['Python', 'Matplotlib', 'NumPy'],
-      github: '',
-      demo: '#'
+      github: 'https://github.com/AnshulKawarey/Sorting-Visualizer',
+      // demo: '#'
     },
   ];
 
