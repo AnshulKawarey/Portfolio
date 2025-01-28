@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Menu, X, Sun, Moon } from 'lucide-react';
 
 const Header = () => {
-  const [isMenuOpen, setIsMenuOpen] = React.useState(false);
-  const [isDarkMode, setIsDarkMode] = React.useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
 
   const navItems = [
     { label: 'Home', href: '#home' },
@@ -17,8 +18,28 @@ const Header = () => {
     document.documentElement.classList.toggle('dark');
   };
 
+  // Handle scroll event
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 0) {
+        setIsScrolled(true); // Make header floating when scrolled
+      } else {
+        setIsScrolled(false); // Make header static when at the top
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
-    <header className="fixed top-0 left-0 right-0 bg-white/80 dark:bg-matte-900/80 backdrop-blur-md z-50 border-b border-gray-200 dark:border-matte-700 transition-colors duration-200">
+    <header
+      className={`${
+        isScrolled
+          ? 'fixed top-0 left-0 right-0 bg-white/80 dark:bg-matte-900/80 backdrop-blur-md z-50 border-b border-gray-200 dark:border-matte-700 transition-colors duration-200'
+          : 'static bg-white dark:bg-matte-900'
+      }`}
+    >
       <nav className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           <div>
