@@ -2,7 +2,7 @@ import HobbyVille from '../assets/HobbyVille.png';
 import EVA from '../assets/EVA.jpg';
 import R2 from '../assets/R2.jpg';
 import sorting from '../assets/sorting.jpg';
-import WolfensteinEngine from '../assets/Wolfenstein.jpg';
+import Wolfenstein from '../assets/Wolfenstein.jpeg';
 import React from 'react';
 import ProjectCard from './ProjectCard';
 
@@ -30,7 +30,7 @@ const Projects = () => {
       title: 'Wolfenstein-Style Engine',
       description:
         'A text-based renderer inspired by classic game engines like Wolfenstein 3D and DOOM. Built in C++ to emulate retro graphics, with customizable console dimensions and font settings for optimal experience.',
-      image: WolfensteinEngine,
+      image: Wolfenstein,
       technologies: ['C++', 'ASCII Rendering', 'Console Graphics'],
       github: 'https://github.com/AnshulKawarey/DOOM_Style_Engine',
       // demo: '#'
