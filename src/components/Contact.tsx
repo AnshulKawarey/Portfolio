@@ -1,23 +1,51 @@
 import React, { useState } from 'react';
 import { Mail, Github, Linkedin, Send } from 'lucide-react';
+import emailjs from 'emailjs-com';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    message: ''
+    message: '',
   });
+
+  const [isSending, setIsSending] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission here
-    console.log(formData);
+    setIsSending(true);
+    const templateParams = {
+      from_name: formData.name,
+      from_email: formData.email,
+      message: formData.message,
+    };
+    emailjs
+      .send(
+        'service_ud0mugg', 
+        'template_jcz3l65',
+        templateParams,
+        'EfU2nKkNQ997pYu4e'
+      )
+      .then(
+        (response) => {
+          console.log('SUCCESS!', response.status, response.text);
+          setIsSending(false);
+          setIsSuccess(true);
+          setFormData({ name: '', email: '', message: '' });
+        },
+        (error) => {
+          console.error('FAILED...', error);
+          setIsSending(false);
+          setIsSuccess(false);
+        }
+      );
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
   };
 
@@ -101,11 +129,19 @@ const Contact = () => {
             </div>
             <button
               type="submit"
-              className="inline-flex items-center px-6 py-3 bg-primary-600 dark:bg-phthalo-500 text-white rounded-lg hover:bg-primary-700 dark:hover:bg-phthalo-600 transition-colors duration-200"
+              className={`inline-flex items-center px-6 py-3 ${
+                isSending
+                  ? 'bg-gray-400 cursor-not-allowed'
+                  : 'bg-primary-600 hover:bg-primary-700 dark:bg-phthalo-500 dark:hover:bg-phthalo-600'
+              } text-white rounded-lg transition-colors duration-200`}
+              disabled={isSending}
             >
-              Send Message
+              {isSending ? 'Sending...' : 'Send Message'}
               <Send className="ml-2" size={20} />
             </button>
+            {isSuccess && (
+              <p className="text-green-600 mt-4">Message sent successfully!</p>
+            )}
           </form>
         </div>
       </div>
